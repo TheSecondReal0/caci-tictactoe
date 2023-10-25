@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://chtf8ljdjxsar"]
 
-[ext_resource type="Texture2D" uid="uid://bnesuft5lgf2t" path="res://icon.svg" id="1_6bnoh"]
+[ext_resource type="Texture2D" uid="uid://bnesuft5lgf2t" path="res://icon.svg" id="1_vtvlf"]
 
 [node name="cell" type="TextureButton"]
 custom_minimum_size = Vector2(100, 100)
-texture_normal = ExtResource("1_6bnoh")
+texture_normal = ExtResource("1_vtvlf")
 stretch_mode = 5
