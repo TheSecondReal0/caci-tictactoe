@@ -4,21 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://culg3bjtdkqby" path="res://board/row.tscn" id="2_snqcl"]
 [ext_resource type="PackedScene" uid="uid://chtf8ljdjxsar" path="res://board/cell.tscn" id="3_4trgr"]
 
-[node name="board" type="Control" node_paths=PackedStringArray("row_container")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="board" type="VBoxContainer" node_paths=PackedStringArray("row_container")]
+theme_override_constants/separation = 0
 script = ExtResource("1_g23yb")
-row_container = NodePath("rows")
+row_container = NodePath(".")
 row_scene = ExtResource("2_snqcl")
 cell_scene = ExtResource("3_4trgr")
-
-[node name="rows" type="VBoxContainer" parent="."]
-layout_mode = 2
-offset_left = 325.5
-offset_right = 951.5
-offset_bottom = 626.0
-theme_override_constants/separation = 0
