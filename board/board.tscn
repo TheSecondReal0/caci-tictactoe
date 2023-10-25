@@ -17,7 +17,8 @@ row_scene = ExtResource("2_snqcl")
 cell_scene = ExtResource("3_4trgr")
 
 [node name="rows" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 2
+offset_left = 325.5
+offset_right = 951.5
+offset_bottom = 626.0
 theme_override_constants/separation = 0
