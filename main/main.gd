@@ -70,7 +70,7 @@ func setup() -> void:
 	board_node.display_board(board)
 	
 	# update board aspect ratio to match dimensions
-	# avoids stretched look/non square cells
+	# avoids stretched look/non square cells with non-square dimensions
 	board_container.ratio = dimensions.aspect()
 	
 	current_player = 0
@@ -78,10 +78,12 @@ func setup() -> void:
 	
 	reset_button.text = "Reset"
 
+# update ui to display who won
 func display_victory(token: Variant) -> void:
 	title.text = "Player {0} wins!".format([token]) 
 	reset_button.text = "Play again?"
 
+# update ui to display that the game resulted in a draw
 func display_draw() -> void:
 	title.text = "Draw!"
 	reset_button.text = "Play again?"
