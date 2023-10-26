@@ -23,12 +23,14 @@ func _ready() -> void:
 	setup()
 
 func on_cell_pressed(row: int, col: int) -> void:
-	print("on cell pressed ", row, " ", col)
 	# make sure there's not already a token on this cell
 	if board.get_cell(row, col) != null:
 		return
 	# make sure there isn't already a win condition on the board
 	if board.check_win_conditions() != null:
+		return
+	# make sure the game isn't a draw
+	if board.check_draw():
 		return
 	
 	# update cell
@@ -41,6 +43,11 @@ func on_cell_pressed(row: int, col: int) -> void:
 	# if victory_token is not null, a player has won
 	if victory_token != null:
 		display_victory(victory_token)
+		return
+	
+	# if there's a draw, update UI accordingly
+	if board.check_draw():
+		display_draw()
 		return
 	
 	# otherwise advance to the next player's turn
@@ -63,7 +70,11 @@ func setup() -> void:
 
 func display_victory(token: Variant) -> void:
 	title.text = "Player {0} wins!".format([token]) 
-	reset_button.text = "Play again!"
+	reset_button.text = "Play again?"
+
+func display_draw() -> void:
+	title.text = "Draw!"
+	reset_button.text = "Play again?"
 
 # advances to the next player's turn and updates UI text as needed
 func advance_turn() -> void:
@@ -72,7 +83,7 @@ func advance_turn() -> void:
 
 func update_turn_text() -> void:
 	var token: Variant = get_current_player_token()
-	title.text = "Make a move, player {0}".format([token]) 
+	title.text = "Your turn, player {0}".format([token]) 
 
 # returns the token belonging to the player who's turn it is
 func get_current_player_token() -> Variant:

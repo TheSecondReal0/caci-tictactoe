@@ -22,6 +22,21 @@ func set_cell(row: int, col: int, value: Variant) -> void:
 func get_cell(row: int, col: int) -> Variant:
 	return board[row][col]
 
+# returns true if all cells are filled and no victory conditions are met
+func check_draw() -> bool:
+	# check if all cells are filled
+	for row in dimensions.y:
+		for col in dimensions.x:
+			if get_cell(row, col) == null:
+				return false
+	
+	# check if there is a win condition present
+	if check_win_conditions() != null:
+		return false
+	
+	# if we reach this point, there must be a draw
+	return true
+
 # returns the token of the player who won, null if no victory conditions are met
 func check_win_conditions() -> Variant:
 	var check_functions: Array[Callable] = []

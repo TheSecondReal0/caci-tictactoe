@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://w6iygk8ltrm8"]
+[gd_scene load_steps=4 format=3 uid="uid://w6iygk8ltrm8"]
 
 [ext_resource type="PackedScene" uid="uid://dn74601xqygd1" path="res://board/board.tscn" id="1_lw30f"]
 [ext_resource type="Script" path="res://main/main.gd" id="1_meuwg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wufrj"]
+font_size = 24
 
 [node name="main" type="Control" node_paths=PackedStringArray("title", "board_node", "reset_button")]
 layout_mode = 3
@@ -25,6 +28,9 @@ grow_vertical = 2
 
 [node name="title" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+label_settings = SubResource("LabelSettings_wufrj")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer"]
 layout_mode = 2
