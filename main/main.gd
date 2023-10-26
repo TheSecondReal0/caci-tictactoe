@@ -5,7 +5,7 @@ extends Control
 # one token for each player (player 0's token is at idx 0, 
 # 	player 1's token at idx 1, etc.)
 # size of this array is the amount of players in the game
-@export var tokens: Array[Variant] = ["X", "O"]
+@export var tokens: Array[String] = ["X", "O"]
 
 @export_group("internal")
 @export var title: Label
