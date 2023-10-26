@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://chtf8ljdjxsar"]
 
-[ext_resource type="Script" path="res://board/cell.gd" id="1_tmk6b"]
+[ext_resource type="Script" path="res://board/cell/cell.gd" id="1_ap2so"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ptuix"]
 font_size = 64
@@ -10,7 +10,7 @@ custom_minimum_size = Vector2(50, 50)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 stretch_mode = 5
-script = ExtResource("1_tmk6b")
+script = ExtResource("1_ap2so")
 label = NodePath("Label")
 
 [node name="Label" type="Label" parent="."]

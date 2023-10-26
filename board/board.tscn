@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://board/board.gd" id="1_g23yb"]
 [ext_resource type="PackedScene" uid="uid://culg3bjtdkqby" path="res://board/row.tscn" id="2_snqcl"]
-[ext_resource type="PackedScene" uid="uid://chtf8ljdjxsar" path="res://board/cell.tscn" id="3_4trgr"]
+[ext_resource type="PackedScene" uid="uid://chtf8ljdjxsar" path="res://board/cell/cell.tscn" id="3_4trgr"]
 
 [node name="board" type="VBoxContainer" node_paths=PackedStringArray("row_container")]
 anchors_preset = 15
