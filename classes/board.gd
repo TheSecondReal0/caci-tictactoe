@@ -1,4 +1,5 @@
 extends RefCounted
+class_name Board
 
 var dimensions: Vector2i = Vector2i(3, 3)
 
@@ -12,7 +13,7 @@ func initialize(_dimensions: Vector2i = dimensions) -> void:
 	for i in dimensions.y:
 		board.append([])
 		for j in dimensions.x:
-			board[i][j] = null
+			board[i].append(null)
 
 func set_cell(row: int, col: int, value: Variant) -> void:
 	board[row][col] = value

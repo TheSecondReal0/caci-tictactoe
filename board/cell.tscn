@@ -5,12 +5,13 @@
 [sub_resource type="LabelSettings" id="LabelSettings_ptuix"]
 font_size = 64
 
-[node name="cell" type="TextureButton"]
+[node name="cell" type="TextureButton" node_paths=PackedStringArray("label")]
 custom_minimum_size = Vector2(50, 50)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 stretch_mode = 5
 script = ExtResource("1_tmk6b")
+label = NodePath("Label")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -19,7 +20,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "X"
 label_settings = SubResource("LabelSettings_ptuix")
 horizontal_alignment = 1
 vertical_alignment = 1

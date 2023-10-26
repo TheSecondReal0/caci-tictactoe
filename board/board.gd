@@ -1,4 +1,5 @@
 extends Control
+class_name BoardNode
 
 @export var dimensions: Vector2i = Vector2i(3, 3)
 
@@ -20,6 +21,17 @@ func on_cell_pressed(row: int, col: int) -> void:
 	print("cell pressed: ", row, " ", col)
 	# emit the cell_pressed signal to notify any listeners
 	cell_pressed.emit(row, col)
+
+# display board data from a Board object
+func display_board(board: Board) -> void:
+	dimensions = board.dimensions
+	# create nodes
+	create_board(dimensions)
+	
+	# update cell tokens
+	for row in dimensions.y:
+		for col in dimensions.x:
+			cell_nodes[row][col].set_token(board.get_cell(row, col))
 
 # clears board nodes and array
 func clear_board() -> void:

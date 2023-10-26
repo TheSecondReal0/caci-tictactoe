@@ -1,14 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://w6iygk8ltrm8"]
+[gd_scene load_steps=3 format=3 uid="uid://w6iygk8ltrm8"]
 
 [ext_resource type="PackedScene" uid="uid://dn74601xqygd1" path="res://board/board.tscn" id="1_lw30f"]
+[ext_resource type="Script" path="res://main/main.gd" id="1_meuwg"]
 
-[node name="main" type="Control"]
+[node name="main" type="Control" node_paths=PackedStringArray("title", "board_node", "reset_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_meuwg")
+title = NodePath("VBoxContainer/title")
+board_node = NodePath("VBoxContainer/AspectRatioContainer/board")
+reset_button = NodePath("VBoxContainer/reset")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -18,7 +23,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="title" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer"]
@@ -29,6 +34,6 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="reset" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Reset board"
