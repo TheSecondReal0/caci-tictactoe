@@ -12,13 +12,13 @@ Only accessible through editing source code currently. An options menu to custom
 * Easily customizable win conditions
 * Easily customizable player tokens and player amount
 * Support for any board size
-* Different win conditions for square vs. non-square board
+* Different win conditions for square vs. non-square boards
 
 ## Opening/Editing
-1. Install Godot (version 4.1.1+) from https://godotengine.org
+1. Download and extract Godot (version 4.1.1+) from https://godotengine.org
 2. Clone/download this project (extract if you download as a .zip)
 3. Open Godot
-4. Click the "Import" on the right side of the screen and navigate to the project files you downloaded in step 2
+4. Click the "Import" button on the right side of the screen and navigate to the project files you downloaded in step 2
 5. Click "Import and Edit"
 6. To start the game, click the play button (triangle) in the top right
 7. Have fun!
