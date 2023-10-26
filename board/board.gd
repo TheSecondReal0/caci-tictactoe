@@ -18,7 +18,6 @@ func _ready():
 
 # called when a cell is pressed
 func on_cell_pressed(row: int, col: int) -> void:
-	print("cell pressed: ", row, " ", col)
 	# emit the cell_pressed signal to notify any listeners
 	cell_pressed.emit(row, col)
 
