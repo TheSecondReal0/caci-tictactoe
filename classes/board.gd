@@ -58,16 +58,19 @@ func get_win_conditions() -> Array[Callable]:
 	
 	# if the board is square, use row, column, and diagonal conditions
 	if dimensions.x == dimensions.y:
-		functions = [check_win_rows, 
-					check_win_columns, 
-					check_win_diagonals
-					]
+		functions = [
+			check_win_rows, 
+			check_win_columns, 
+			check_win_diagonals
+		]
 	# if the board is not square, use row, column, and square conditions
 	else:
-		functions = [check_win_rows, 
-					check_win_columns,
-					check_win_square.bind(2)
-					]
+		functions = [
+			check_win_rows, 
+			check_win_columns,
+			# check for 2x2 squares
+			check_win_square.bind(2)
+		]
 	
 	return functions
 
