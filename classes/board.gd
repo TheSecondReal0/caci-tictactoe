@@ -46,7 +46,7 @@ func check_win_conditions() -> Variant:
 	for fun in check_functions:
 		result = fun.call()
 		
-		# non-null indicates a victory occurred
+		# non-null result indicates a victory occurred
 		if result != null:
 			return result
 	
