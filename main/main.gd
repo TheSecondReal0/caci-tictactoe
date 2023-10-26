@@ -1,6 +1,10 @@
 extends Control
 
+# dimensions of the tictactoe board
 @export var dimensions: Vector2i = Vector2i(3, 3)
+# one token for each player (player 0's token is at idx 0, 
+# 	player 1's token at idx 1, etc.)
+# size of this array is the amount of players in the game
 @export var tokens: Array[Variant] = ["X", "O"]
 
 @export_group("internal")
@@ -10,6 +14,7 @@ extends Control
 
 var board: Board
 
+# keep track of who's turn it is
 var current_player: int = 0
 
 # called when the node enters the scene tree for the first time.

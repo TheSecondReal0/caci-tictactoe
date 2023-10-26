@@ -39,18 +39,7 @@ func check_draw() -> bool:
 
 # returns the token of the player who won, null if no victory conditions are met
 func check_win_conditions() -> Variant:
-	var check_functions: Array[Callable] = []
-	
-	# figure out which set of win conditions to apply based on board dimensions
-	match dimensions:
-		Vector2i(3, 3):
-			check_functions = [check_win_rows, 
-								check_win_columns, 
-								check_win_diagonals
-								]
-		_: # default case
-			# no ruleset configured for these dimensions, return null
-			return null
+	var check_functions: Array[Callable] = get_win_conditions()
 	
 	# check all of our win conditions against the board
 	var result: Variant = null
@@ -63,6 +52,24 @@ func check_win_conditions() -> Variant:
 	
 	# if we reach this point, no victory
 	return null
+
+func get_win_conditions() -> Array[Callable]:
+	var functions: Array[Callable] = []
+	
+	# if the board is square, use row, column, and diagonal conditions
+	if dimensions.x == dimensions.y:
+		functions = [check_win_rows, 
+					check_win_columns, 
+					check_win_diagonals
+					]
+	# if the board is not square, use row, column, and square conditions
+	else:
+		functions = [check_win_rows, 
+					check_win_columns,
+					check_win_square.bind(2)
+					]
+	
+	return functions
 
 # returns the token of the player who meets the row win condition, null if no player meets it
 func check_win_rows() -> Variant:
@@ -165,3 +172,29 @@ func check_win_diagonals() -> Variant:
 	
 	# target_token now holds the result of the victory check
 	return target_token
+
+# checks if there is a square of a given size of one token
+# returns the token of the player who meets this win condition, null if no player meets it
+func check_win_square(size: int) -> Variant:
+	# check every possible square starting at the top left
+	for row in range(0, dimensions.y - size + 1):
+		for col in range(0, dimensions.x - size + 1):
+			var target_token: Variant = get_cell(row, col)
+			# make sure every token in the square matches and is not null
+			for i in range(row, row + size):
+				for j in range(col, col + size):
+					var token: Variant = get_cell(i, j)
+					if token == null:
+						target_token = null
+						break
+					if token != target_token:
+						target_token = null
+						break
+				# if target_token is null, no victory
+				if target_token == null:
+					break
+				
+			# if target_token is not null, we found a victory
+			if target_token != null:
+				return target_token
+	return null
