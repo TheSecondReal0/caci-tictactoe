@@ -9,6 +9,7 @@ extends Control
 
 @export_group("internal")
 @export var title: Label
+@export var board_container: AspectRatioContainer
 @export var board_node: BoardNode
 @export var reset_button: Button
 
@@ -67,6 +68,10 @@ func setup() -> void:
 	board.initialize(dimensions)
 	
 	board_node.display_board(board)
+	
+	# update board aspect ratio to match dimensions
+	# avoids stretched look/non square cells
+	board_container.ratio = dimensions.aspect()
 	
 	current_player = 0
 	update_turn_text()
