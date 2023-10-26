@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://culg3bjtdkqby"]
 
 [node name="row" type="HBoxContainer"]
-size_flags_horizontal = 4
+size_flags_vertical = 3
 theme_override_constants/separation = 0
 alignment = 1

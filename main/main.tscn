@@ -21,7 +21,11 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="board" parent="VBoxContainer" instance=ExtResource("1_lw30f")]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="board" parent="VBoxContainer/AspectRatioContainer" instance=ExtResource("1_lw30f")]
 layout_mode = 2
 size_flags_vertical = 3
 
